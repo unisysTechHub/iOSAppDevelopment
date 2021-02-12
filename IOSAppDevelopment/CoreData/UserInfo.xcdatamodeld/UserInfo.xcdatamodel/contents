@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Credentials" representedClassName="Credentials" syncable="YES" codeGenerationType="class">
+        <attribute name="active" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="password" attributeType="String"/>
+        <attribute name="userName" attributeType="String"/>
+        <fetchedProperty name="activeUsers" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Credentials" predicateString="true == $FETCH_SOURCE.active "/>
+        </fetchedProperty>
+    </entity>
+    <entity name="Employee" representedClassName="Employee" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
+    <elements>
+        <element name="Credentials" positionX="-63" positionY="-18" width="128" height="116"/>
+        <element name="Employee" positionX="-63" positionY="9" width="128" height="103"/>
+        <element name="Entity" positionX="-63" positionY="9" width="128" height="43"/>
+    </elements>
+</model>

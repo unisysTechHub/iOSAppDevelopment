@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lZf-Of-Io4">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notification View Controller-->
+        <scene sceneID="fR5-ZA-VLN">
+            <objects>
+                <viewController id="lZf-Of-Io4" customClass="NotificationViewController" customModule="IOSAppDevelopment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SFO-eu-OdM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notificatio User Casetestetetetetettetetetete" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elK-mt-Ck7">
+                                <rect key="frame" x="16" y="100" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSt-0x-cMW">
+                                <rect key="frame" x="16" y="136.5" width="343" height="30"/>
+                                <state key="normal" title="Send Notification"/>
+                                <connections>
+                                    <action selector="SendNotification:" destination="lZf-Of-Io4" eventType="touchUpInside" id="LET-t2-gOa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aHF-K1-7Bd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="elK-mt-Ck7" firstAttribute="top" secondItem="aHF-K1-7Bd" secondAttribute="top" constant="100" id="EOF-6J-X87"/>
+                            <constraint firstItem="aHF-K1-7Bd" firstAttribute="trailing" secondItem="elK-mt-Ck7" secondAttribute="trailing" constant="16" id="FUe-bb-37R"/>
+                            <constraint firstItem="elK-mt-Ck7" firstAttribute="leading" secondItem="aHF-K1-7Bd" secondAttribute="leading" constant="16" id="Gi8-V6-ZDt"/>
+                            <constraint firstItem="aHF-K1-7Bd" firstAttribute="trailing" secondItem="OSt-0x-cMW" secondAttribute="trailing" constant="16" id="Tql-b3-dPe"/>
+                            <constraint firstItem="OSt-0x-cMW" firstAttribute="top" secondItem="elK-mt-Ck7" secondAttribute="bottom" constant="16" id="ayz-Qu-7Gv"/>
+                            <constraint firstItem="OSt-0x-cMW" firstAttribute="leading" secondItem="aHF-K1-7Bd" secondAttribute="leading" constant="16" id="nvQ-9P-Vvz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="esf-ro-d06" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-24.375" y="-18.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
