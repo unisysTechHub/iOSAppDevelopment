@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H524" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Credentials" representedClassName="Credentials" syncable="YES" codeGenerationType="class">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="userName" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Employee" representedClassName="Employee" syncable="YES" codeGenerationType="class">
+    <entity name="Deparment" representedClassName="Deparment" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="employees" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Deparment" inverseName="employees" inverseEntity="Deparment"/>
+    </entity>
+    <entity name="Employee" representedClassName=".Employee" syncable="YES" codeGenerationType="class">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="deptid" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="projectName" optional="YES" attributeType="String"/>
+        <relationship name="department" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="department" inverseEntity="Employee"/>
+        <fetchedProperty name="activeUsers" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Employee"/>
+        </fetchedProperty>
+        <fetchedProperty name="fetchedProperty" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Employee"/>
+        </fetchedProperty>
     </entity>
     <elements>
         <element name="Credentials" positionX="-36" positionY="36" width="128" height="88"/>
-        <element name="Employee" positionX="-54" positionY="-9" width="128" height="118"/>
+        <element name="Employee" positionX="-54" positionY="-9" width="128" height="191"/>
+        <element name="Deparment" positionX="-45" positionY="54" width="128" height="88"/>
     </elements>
 </model>

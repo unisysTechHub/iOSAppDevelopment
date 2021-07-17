@@ -15,6 +15,11 @@ func appMainStoreContext() -> NSManagedObjectContext
     return ((UIApplication.shared.delegate  as? AppDelegate)?.persistentContainer.viewContext)!
 
 }
+func appMainStoreBackgroundContext() -> NSManagedObjectContext
+{
+    return ((UIApplication.shared.delegate  as? AppDelegate)?.persistentContainer.newBackgroundContext())!
+
+}
  func EmployeeEntitiy() -> NSEntityDescription
  {
       return (NSEntityDescription.entity(forEntityName: "Employee", in: appMainStoreContext()))!

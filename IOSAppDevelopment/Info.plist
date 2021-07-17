@@ -38,17 +38,17 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>CombinePractice</string>
+					<string>CoreData</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
 	<key>UILaunchStoryboardName</key>
-	<string>CombinePractice</string>
+	<string>Main</string>
 	<key>UIMainStoryboardFile</key>
-	<string>CocoaLearning</string>
+	<string>CoreData</string>
 	<key>UIMainStoryboardFile~ipad</key>
-	<string>CocoaLearning</string>
+	<string>CoreData</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

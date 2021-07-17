@@ -150,10 +150,9 @@ class EmpListViewController: UITableViewController, NSFetchedResultsControllerDe
         empManageObject.setValue(newEmployeeId, forKey: "id")
         empManageObject.setValue("someAddress", forKey: "address")
         empManageObject.setValue("Project 1", forKey: "projectName")
-
         
         do {
-            try appMainStoreContext().save()
+            try appMainStoreBackgroundContext().save()
         } catch let error as NSError {
             print("context save error \(error.userInfo)")
         }

@@ -43,6 +43,7 @@ class CoreDataViewController: UIViewController, UITextFieldDelegate {
      {showMessage(message: "Invalid  Credentials")
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         executeAPI(for: urlString, model : HumanReviewOutputModel.self ).sink { (completionError) in
@@ -140,15 +141,17 @@ class CoreDataViewController: UIViewController, UITextFieldDelegate {
 //    func textFieldDidChangeSelection(_ textField: UITextField) {
 //        print(textField.text)
 //    }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+
     }
-    */
+    
 
    
     func showMessage(message : String)
@@ -236,4 +239,5 @@ extension UITextField {
             .map { $0.text ?? "" }
             .eraseToAnyPublisher()
     }
+    
 }

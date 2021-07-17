@@ -16,7 +16,6 @@ class PersistentContainer: NSPersistentContainer {
         guard context.hasChanges else { return }
         do {
             try context.save()
-            
             print("save changes")
         } catch let error as NSError {
             print("Error: \(error), \(error.userInfo)")

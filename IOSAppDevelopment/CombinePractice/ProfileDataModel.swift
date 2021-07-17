@@ -76,7 +76,6 @@ func adduserMetadataKeyPaths()
     usermetaData.append(\UserModel.name)
     usermetaData.append(\UserModel.username)
     usermetaData.append(\UserModel.address?.zipcode)
-    
  }
 
 func printUserMetaData(user : UserModel)

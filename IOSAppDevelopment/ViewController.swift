@@ -47,6 +47,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
+        
         imageView.image = selectedImage
         dismiss(animated: true, completion: nil)
     }

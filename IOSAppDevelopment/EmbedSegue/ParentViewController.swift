@@ -20,6 +20,7 @@ class ParentViewController: UIViewController {
         print("segue called")
         if segue.identifier == "embedSegue"
         {
+            
             if let childViewController = segue.destination as? ChildViewController
             {
                 // set data on childview controller instance.

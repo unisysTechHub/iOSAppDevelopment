@@ -31,7 +31,7 @@ import UIKit
     }
     
     var rating : Int = 0
-    {
+    {  
         didSet
         {
             ratingFilledStars()
