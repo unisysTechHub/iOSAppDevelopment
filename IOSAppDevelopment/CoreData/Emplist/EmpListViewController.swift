@@ -29,6 +29,7 @@ class EmpListViewController: UITableViewController, NSFetchedResultsControllerDe
         deleteAllRows()
         loadEmlopyeeTable()
        // fethEmpoyeeData()
+        self.tableView.accessibilityIdentifier = "emplist"
         self.tableView.register(EmplistHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "headerView")
         
         let request =     NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
@@ -77,9 +78,15 @@ class EmpListViewController: UITableViewController, NSFetchedResultsControllerDe
             fatalError("tableview cell not found with the identifier")
             
         }
+      let employee =  fetchResultController?.sections![indexPath.section].objects?[indexPath.row] as! Employee
+        
+//        emplistCell.accessibilityIdentifier = cellIndentier + String(employee.id)
+        emplistCell.accessibilityIdentifier = "emplistCell1002"
+        print("@Ramesh \(String(describing: emplistCell.accessibilityIdentifier))")
        // emplistCell.configure(employeeModel: employees[indexPath.row])
 //        emplistCell.configure(mangedOject: (fetchResultController?.fetchedObjects?[indexPath.row]) as! Employee)
         emplistCell.configure(mangedOject: (fetchResultController?.sections![indexPath.section].objects?[indexPath.row]) as! Employee)
+        emplistCell.isAccessibilityElement = true
         return emplistCell
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -106,7 +113,29 @@ class EmpListViewController: UITableViewController, NSFetchedResultsControllerDe
     sectionLabel.text = fetchResultController?.sections?[section].name
         return headerView
     }
-    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        let odd = indexPath.row % 2
+        if odd == 0 {
+            return true
+        }
+        return false
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch  editingStyle {
+        case .delete:
+            let emplyeeObject = (fetchResultController?.sections![indexPath.section].objects?[indexPath.row]) as! Employee
+            do {
+                appMainStoreContext().delete(emplyeeObject)
+                try appMainStoreContext().save()
+            } catch let error as NSError {
+                print("context save error \(error.userInfo)")
+            }
+          
+        default:
+            print("@Ramesh swipe action other tahn delete")
+        }
+    }
+   
     func onExpandORCollapseTouch(icon: UIButton) {
 
         let section = icon.tag
@@ -208,18 +237,42 @@ class EmpListViewController: UITableViewController, NSFetchedResultsControllerDe
     }
     
     }
-    
-    func deleteAllRows()
-    {
+
+    func deleteMatchingRows(empId : Int16) {
         let request =     NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
+        
+       // request.predicate = predicate
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
         do {
             try (UIApplication.shared.delegate as! AppDelegate).persistentContainer.persistentStoreCoordinator.execute(deleteRequest, with: appMainStoreContext())
+            print(empId)
+
         } catch let error as NSError {
             // TODO: handle the error
             print("context save error \(error.userInfo)")
 
         }
+    }
+    func deleteAllRows()
+    {
+        let request =     NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        
+        do {
+            try (UIApplication.shared.delegate as! AppDelegate).persistentContainer.persistentStoreCoordinator.execute(deleteRequest, with: appMainStoreContext())
+            print("@Ramesh delete action executed successfully")
+        } catch let error as NSError {
+            // TODO: handle the error
+            print("context save error \(error.userInfo)")
+            
+            
+
+        }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("@Ramesh didSelect")
+        tableView.cellForRow(at: indexPath)?.backgroundColor = .blue
     }
     func fethEmpoyeeData()
     {
@@ -246,7 +299,7 @@ class EmpListViewController: UITableViewController, NSFetchedResultsControllerDe
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-    
+    print("change content")
         self.tableView.reloadData()
 //        let itemCount =  controller.fetchedObjects?.count ?? 1 - 1
 //        let scorllToItem = itemCount - 1

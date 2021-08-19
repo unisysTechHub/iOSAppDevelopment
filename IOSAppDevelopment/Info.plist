@@ -44,7 +44,7 @@
 		</dict>
 	</dict>
 	<key>UILaunchStoryboardName</key>
-	<string>Main</string>
+	<string>CoreData</string>
 	<key>UIMainStoryboardFile</key>
 	<string>CoreData</string>
 	<key>UIMainStoryboardFile~ipad</key>

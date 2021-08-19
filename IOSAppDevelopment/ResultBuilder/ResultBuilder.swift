@@ -137,7 +137,7 @@ enum SmoothieBuilder {
         guard let components = component else {
             return []
         }
-
+        
         return components
     }
     
