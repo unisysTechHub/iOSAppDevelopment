@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         testIntegerArrayBuilder()
         guard let _ = (scene as? UIWindowScene) else { return }
-        startLoad()
+        //startLoad()
         //subscribeToDidFileDownloadNofiction()
       //  let fileDownloadInstance = FileDownlaod()
        // fileDownloadInstance.registerNotication()

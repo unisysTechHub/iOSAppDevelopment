@@ -7,7 +7,35 @@
 		<key>IOSAppDevelopment.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>NewlyAddedEmployeeExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0C5B4EF326C7D9B500AD806B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0C5D15E22509E0AB0000958D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0C6087E624FF69CA00A624E3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0CE16AE226DA26160031780D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

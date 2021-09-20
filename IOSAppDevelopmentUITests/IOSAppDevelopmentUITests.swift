@@ -7,9 +7,13 @@
 //
 
 import XCTest
+import Combine
 
 class IOSAppDevelopmentUITests: XCTestCase {
-
+    override func setUp() {
+        
+        print("setup method called before test begins")
+    }
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -41,23 +45,34 @@ class IOSAppDevelopmentUITests: XCTestCase {
        let password = app.textFields["Enter Password"]
         password.tap()
         password.typeText("password")
-        app/*@START_MENU_TOKEN@*/.staticTexts["Sign in"]/*[[".buttons[\"Sign in\"].staticTexts[\"Sign in\"]",".staticTexts[\"Sign in\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
         app.tables.cells.element(boundBy: 0).swipeLeft()
         app.tables/*@START_MENU_TOKEN@*/.buttons["Delete"]/*[[".cells.buttons[\"Delete\"]",".buttons[\"Delete\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.tables.cells.element(boundBy: 1).swipeLeft()
         app.tables/*@START_MENU_TOKEN@*/.buttons["Delete"]/*[[".cells.buttons[\"Delete\"]",".buttons[\"Delete\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-                
+  }
+    let app = XCUIApplication()
 
-       
-
+    func test1() throws {
+        app.launch()
+        navigateToSinginScreen()
+        navigateToEmplistScreen(select: 0)
+        
+//        let cell =   app.tables["emplist"].cells.matching(identifier: "emplistCell1002").element(boundBy: 0)
+//        cell.swipeLeft()
+//        let flag = true
+//
+//            try XCTSkipIf(flag,"", file: "IOSAppDevelopmentUITests.swift",line: 78)
+//
+//
+////        cell.cells.element(boundBy: 0).swipeLeft()
+//       // cell.firstMatch.swipeLeft()
+//        cell.buttons["Delete"].tap()
+//
+        
     }
     
-    func test1() {
-        let app = XCUIApplication()
-        
-        app.launch()
-
+    func navigateToSinginScreen() {
         let enterUserNameTextField = app.textFields["Enter User Name"]
         enterUserNameTextField.tap()
         enterUserNameTextField.typeText("admin1")
@@ -65,15 +80,13 @@ class IOSAppDevelopmentUITests: XCTestCase {
          password.tap()
          password.typeText("password")
          app/*@START_MENU_TOKEN@*/.staticTexts["Sign in"]/*[[".buttons[\"Sign in\"].staticTexts[\"Sign in\"]",".staticTexts[\"Sign in\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+    }
+    
+    func navigateToEmplistScreen(select employeeAt : Int) {
         let cell =   app.tables["emplist"].cells.matching(identifier: "emplistCell1002").element(boundBy: 0)
         cell.swipeLeft()
-       
-//        cell.cells.element(boundBy: 0).swipeLeft()
-       // cell.firstMatch.swipeLeft()
         cell.buttons["Delete"].tap()
-        let string = "dfdffdfd dfdfd"
-        
-        
+
     }
 
     func testLaunchPerformance() throws {

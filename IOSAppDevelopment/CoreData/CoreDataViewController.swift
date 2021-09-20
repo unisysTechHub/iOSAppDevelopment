@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import CoreFoundation
 import Combine
-
+var keychainPasswordItemShared = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: "admin1", accessGroup: KeychainConfiguration.accessGroup)
 class CoreDataViewController: UIViewController, UITextFieldDelegate {
     var appDelegate : AppDelegate?
     var persistentContainer : PersistentContainer?
@@ -218,6 +218,13 @@ class CoreDataViewController: UIViewController, UITextFieldDelegate {
            let password = self.password.text,
            let credentials = getUserCredintialsFromStore()
         {
+            keychainPasswordItemShared = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: credentials.userName, accessGroup: KeychainConfiguration.accessGroup)
+            do {
+            try  keychainPasswordItemShared.savePassword(credentials.password)
+            }
+            catch (let error) {
+                print("keychain password save error \(error.localizedDescription)")
+            }
             return userName.elementsEqual(credentials.userName) &&
                 password.elementsEqual(credentials.password)
         }

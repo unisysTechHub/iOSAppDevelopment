@@ -12,7 +12,6 @@ class SigninViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var userNameTextField: UITextField!
-    
     @IBOutlet weak var signIn: UIButton!
 //    @State var amount : Double = 9.9
     var cancellables = Set<AnyCancellable>()

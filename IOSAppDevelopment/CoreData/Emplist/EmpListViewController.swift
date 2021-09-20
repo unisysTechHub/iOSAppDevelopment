@@ -29,6 +29,12 @@ class EmpListViewController: UITableViewController, NSFetchedResultsControllerDe
         deleteAllRows()
         loadEmlopyeeTable()
        // fethEmpoyeeData()
+//        self.tableView.tableHeaderView = { let header = UILabel(frame: CGRect(x: 0, y: 44, width: self.tableView.bounds.width, height: 44))
+//            header.text = " Employee Details"
+//            header.textAlignment = .center
+        // add layout guided - add contraints w.r.t adjcent views
+//            return header
+//        }()
         self.tableView.accessibilityIdentifier = "emplist"
         self.tableView.register(EmplistHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "headerView")
         
